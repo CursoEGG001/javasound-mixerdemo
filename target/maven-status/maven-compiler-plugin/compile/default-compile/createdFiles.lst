@@ -1,0 +1,7 @@
+local\demo\audiomixerapp\audio\MultiTrackMixer.class
+local\demo\audiomixerapp\core\AudioMixer.class
+local\demo\audiomixerapp\io\AudioFileChooser.class
+local\demo\audiomixerapp\audio\FileAudioSource.class
+local\demo\audiomixerapp\core\AudioSource.class
+local\demo\audiomixerapp\ui\AudioMixerGUI.class
+local\demo\audiomixerapp\DemoAudiomixerapp.class
