@@ -18,12 +18,12 @@ import local.demo.audiomixerapp.core.AudioSource;
  *
  * @author pc
  */
-
 public class FileAudioSource implements AudioSource {
+
     private final Clip clip;
     private boolean isPlaying;
 
-    public FileAudioSource(File audioFile) throws Exception {
+    public FileAudioSource(File audioFile) throws IOException, LineUnavailableException, UnsupportedAudioFileException {
         super();
         try {
             AudioInputStream auStreamSelection = AudioSystem.getAudioInputStream(audioFile);
@@ -76,4 +76,3 @@ public class FileAudioSource implements AudioSource {
     }
 
 }
-
