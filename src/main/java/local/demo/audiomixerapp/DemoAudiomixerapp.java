@@ -179,19 +179,19 @@ import local.demo.audiomixerapp.ui.AudioMixerGUI;
 //        setLocationRelativeTo(null);
 //    }
 //
-//    private void addNewTrack() {
+//private void addNewTrack() {
 //        AudioFileChooser selFile = new AudioFileChooser();
 //        try {
 //            File audioFile = selFile.getAudioFile(this);
 //            if (audioFile == null) {
-//                return; // User cancelled selection
+//                return; // Usuario canceló la selección.
 //            }
 //
-//            System.out.println("Attempting to load audio file: " + audioFile.getAbsolutePath());
+//            System.out.println("Intentando cargar archivo de audio: " + audioFile.getAbsolutePath());
 //            FileAudioSource source = new FileAudioSource(audioFile);
 //            mixer.addSource(source);
 //
-//            // Create track control panel
+//            // Crea panel de controles de la pista
 //            JPanel trackControls = new JPanel();
 //            trackControls.setLayout(new FlowLayout(FlowLayout.LEFT));
 //
@@ -201,8 +201,7 @@ import local.demo.audiomixerapp.ui.AudioMixerGUI;
 //
 //            playButton.addActionListener(e -> source.play());
 //            stopButton.addActionListener(e -> source.stop());
-//            volumeSlider.addChangeListener(e
-//                    -> source.setVolume(volumeSlider.getValue() / 100.0f));
+//            volumeSlider.addChangeListener(e -> source.setVolume(volumeSlider.getValue() / 100.0f));
 //
 //            trackControls.add(playButton);
 //            trackControls.add(stopButton);
@@ -211,14 +210,24 @@ import local.demo.audiomixerapp.ui.AudioMixerGUI;
 //            JLabel trackLabel = new JLabel(audioFile.getName());
 //            trackControls.add(trackLabel);
 //
+//            // Agrega botón de remover la pista
+//            JButton closeButton = new JButton("Sacar");
+//            closeButton.addActionListener(e -> {
+//                // Saca la pista del mezclador
+//                mixer.removeSource(source);
+//
+//                // Saca el panel de la pista del contenedor
+//                trackPanel.remove(trackControls);
+//                trackPanel.revalidate();
+//                trackPanel.repaint();
+//            });
+//            trackControls.add(closeButton);
+//
 //            trackPanel.add(trackControls);
 //            trackPanel.revalidate();
 //            trackPanel.repaint();
 //
-//        } catch (Exception e) {
-//            System.err.println("Stack trace for debugging:");
-//            e.printStackTrace();
-//
+//        } catch (IOException | LineUnavailableException | UnsupportedAudioFileException e) {
 //            JOptionPane.showMessageDialog(this,
 //                    "Error adding track: " + e.getClass().getSimpleName() + "\n"
 //                    + "Message: " + e.getMessage(),
@@ -226,7 +235,6 @@ import local.demo.audiomixerapp.ui.AudioMixerGUI;
 //                    JOptionPane.ERROR_MESSAGE);
 //        }
 //    }
-//}
 //
 //class AudioFileChooser {
 //
